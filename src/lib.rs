@@ -20,13 +20,11 @@ pub struct ImageFeatures {
 
 #[no_mangle]
 pub unsafe extern "C" fn inspect_image(data: *const u8, data_size: i32) -> ImageFeatures {
-    let mut features: WebPBitstreamFeatures = unsafe { mem::zeroed() };
+    let mut features: WebPBitstreamFeatures = mem::zeroed();
 
     // Failure is detected on C# side by width <= 0 || height <= 0,
     // so ignore result here
-    unsafe {
-        WebPGetFeatures(data, data_size as usize, &mut features);
-    }
+    WebPGetFeatures(data, data_size as usize, &mut features);
 
     ImageFeatures {
         width: features.width,
@@ -36,18 +34,18 @@ pub unsafe extern "C" fn inspect_image(data: *const u8, data_size: i32) -> Image
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn decode_image(data: *const u8, data_size: i32, output_buffer: *mut u8) -> bool {
-    let mut config: WebPDecoderConfig = unsafe { mem::zeroed() };
-    unsafe {
-        if !WebPInitDecoderConfig(&mut config) {
-            return false;
-        }
+pub unsafe extern "C" fn decode_image(
+    data: *const u8,
+    data_size: i32,
+    output_buffer: *mut u8,
+) -> bool {
+    let mut config: WebPDecoderConfig = mem::zeroed();
+    if !WebPInitDecoderConfig(&mut config) {
+        return false;
     }
 
     // This cannot fail since it should've already been done once before
-    unsafe {
-        WebPGetFeatures(data, data_size as usize, &mut config.input);
-    }
+    WebPGetFeatures(data, data_size as usize, &mut config.input);
 
     config.options.use_threads = 1;
     config.options.flip = 1; // Otherwise final Texture2D will be upside-down
@@ -62,11 +60,5 @@ pub unsafe extern "C" fn decode_image(data: *const u8, data_size: i32, output_bu
 
     config.output.is_external_memory = 1;
 
-    unsafe {
-        if WebPDecode(data, data_size as usize, &mut config) != VP8StatusCode::VP8_STATUS_OK {
-            return false;
-        }
-    }
-
-    true
+    WebPDecode(data, data_size as usize, &mut config) == VP8StatusCode::VP8_STATUS_OK
 }
