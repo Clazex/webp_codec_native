@@ -1,0 +1,18 @@
+{
+	"recommendations": [
+		"bungcip.better-toml",
+		"donjayamanne.githistory",
+		"eamodio.gitlens",
+		"editorconfig.editorconfig",
+		"github.vscode-pull-request-github",
+		"lacroixdavid1.vscode-format-context-menu",
+		"mkxml.vscode-filesize",
+		"nhoizey.gremlins",
+		"redhat.vscode-xml",
+		"redhat.vscode-yaml",
+		"rust-lang.rust-analyzer",
+		"serayuzgur.crates",
+		"streetsidesoftware.code-spell-checker",
+		"visualstudioexptteam.vscodeintellicode"
+	]
+}
