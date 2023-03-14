@@ -1,6 +1,6 @@
 [package]
 name = "webp_codec_native"
-version = "0.1.0"
+version = "0.1.1"
 description = "Rust side of WebPCodec"
 authors = ["Clazex <clazex.y@gmail.com>"]
 license = "MIT"
