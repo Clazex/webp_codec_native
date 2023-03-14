@@ -1,6 +1,9 @@
+#![no_std]
 #![allow(clippy::missing_safety_doc)]
 
-use std::mem;
+use core::mem;
+
+use panic_halt as _;
 
 // libwebp_sys instead of webp or image is used here because
 // it provides low-level api to decode the image into provided

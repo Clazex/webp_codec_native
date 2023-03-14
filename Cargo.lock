@@ -35,16 +35,22 @@ checksum = "99227334921fae1a979cf0bfdfcc6b3e5ce376ef57e16fb6fb3ea2ed6095f80c"
 [[package]]
 name = "libwebp-sys"
 version = "0.8.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "de335a4c85f5ebd9129dec4f5045b6623c5db029f0e140a0102fb7d154c93de1"
+source = "git+https://github.com/Clazex/libwebp-sys.git#df2925307357f8b9a9a505e57a0505d27b3b298e"
 dependencies = [
  "cc",
  "glob",
 ]
 
 [[package]]
+name = "panic-halt"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "de96540e0ebde571dc55c73d60ef407c653844e6f9a1e2fdbd40c07b9252d812"
+
+[[package]]
 name = "webp_codec_native"
 version = "0.1.0"
 dependencies = [
  "libwebp-sys",
+ "panic-halt",
 ]

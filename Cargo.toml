@@ -13,7 +13,8 @@ repository = "https://github.com/Clazex/webp_codec_native/"
 crate-type = ["cdylib"]
 
 [dependencies]
-libwebp-sys = { version = "0.8.0", features = ["avx2", "sse41"] }
+libwebp-sys = { git = "https://github.com/Clazex/libwebp-sys.git", default-features = false, features = ["parallel", "avx2", "sse41", "neon"] }
+panic-halt = "0.2.0"
 
 [profile.dev]
 panic = "abort"
