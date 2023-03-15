@@ -1,6 +1,5 @@
 {
 	"recommendations": [
-		"bungcip.better-toml",
 		"donjayamanne.githistory",
 		"eamodio.gitlens",
 		"editorconfig.editorconfig",
@@ -13,6 +12,7 @@
 		"rust-lang.rust-analyzer",
 		"serayuzgur.crates",
 		"streetsidesoftware.code-spell-checker",
+		"tamasfe.even-better-toml",
 		"visualstudioexptteam.vscodeintellicode"
 	]
 }
