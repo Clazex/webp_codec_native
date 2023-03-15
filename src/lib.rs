@@ -1,8 +1,12 @@
-#![no_std]
+#![cfg_attr(not(target_os = "macos"), no_std)]
 #![allow(clippy::missing_safety_doc)]
+
+#[cfg(not(any(target_os = "windows", target_os = "macos", target_os = "linux")))]
+compile_error!("Unsupported OS");
 
 use core::mem;
 
+#[cfg(not(target_os = "macos"))]
 use panic_halt as _;
 
 // libwebp_sys instead of webp or image is used here because
