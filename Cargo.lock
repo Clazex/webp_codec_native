@@ -34,8 +34,9 @@ checksum = "99227334921fae1a979cf0bfdfcc6b3e5ce376ef57e16fb6fb3ea2ed6095f80c"
 
 [[package]]
 name = "libwebp-sys"
-version = "0.8.0"
-source = "git+https://github.com/Clazex/libwebp-sys.git#df2925307357f8b9a9a505e57a0505d27b3b298e"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c25c53292693c6651d913eff524d04018372b36bf0547a192238009c5c82d638"
 dependencies = [
  "cc",
  "glob",
