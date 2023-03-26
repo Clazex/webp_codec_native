@@ -22,7 +22,7 @@ use libwebp_sys::{
 pub struct ImageFeatures {
     pub width: i32,
     pub height: i32,
-    pub has_animation: i32,
+    pub has_animation: bool,
 }
 
 #[no_mangle]
@@ -36,7 +36,7 @@ pub unsafe extern "C" fn inspect_image(data: *const u8, data_size: i32) -> Image
     ImageFeatures {
         width: features.width,
         height: features.height,
-        has_animation: features.has_animation,
+        has_animation: features.has_animation != 0,
     }
 }
 
